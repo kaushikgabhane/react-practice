@@ -2,15 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import App from './App';
-import Practice from './Practice2'
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-    <Practice />
-  </React.StrictMode>
+
+//  removed strict mode due to its nature of making twice request when called with axios on dev server/ live server.
+ <App />
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Practice2 from "./Practice2";
+import Axios from 'axios';
 
+
+// code snippets for day1 of react practice
 function SuperHero(){
 
   const [hero,setHero] = useState(["Shaktiman", " ironman", "hulk"])
@@ -54,14 +58,34 @@ function Counter(){
   )
 }
 
-function App() {
 
+
+function App() {
+  // From here practice2 code start
+  const [details, setDetails] = useState({})
+  const fetchDetails = async () => {
+    const {data} = await Axios.get('https://randomuser.me/api')
+    console.log("RESPONCE",data);
+
+    const details = data.results[0]
+    setDetails(details)
+  }
+
+  let list = ["kaushik","is","a","good","guy"];
+
+  useEffect(() => {
+    fetchDetails();
+  },[])
 
   return (
     <>
       <h1>hello to react</h1>
       <Counter />
       <SuperHero />
+      <Practice2 myname='kaushik' list= {list} details={details}/>
+      <button
+        onClick={fetchDetails}
+      >get details</button>
 
     </>
   );
