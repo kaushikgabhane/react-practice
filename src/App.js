@@ -35,14 +35,14 @@ function SuperHero(){
 }
 
 function Counter(){
-  let [count , setCount] = useState(100);
+  let [count , setCount] = useState(0);
   
   function oneUp(){
-    setCount(count + 1)
+   return count>=10 ? "": setCount(count + 1); 
   }
 
   function oneDown(){
-    setCount(count - 1)
+    return count<=0 ? "": setCount(count - 1);
   }
 
   return(
